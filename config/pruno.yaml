@@ -1,0 +1,6 @@
+vars:
+  src: ./src
+  dist: ./dist
+stylus:
+  font-awesome: true
+  normalize: true

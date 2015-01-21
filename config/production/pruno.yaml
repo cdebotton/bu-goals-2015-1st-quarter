@@ -1,0 +1,3 @@
+stylus:
+  minify: true
+  dist: ::dist/stylesheets/app.min.css

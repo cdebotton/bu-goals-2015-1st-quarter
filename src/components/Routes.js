@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, DefaultRoute} from 'react-router';
+import {Route, DefaultRoute, Redirect} from 'react-router';
 import App from './App';
 import IndexHandler from './IndexHandler';
 import RecapHandler from './RecapHandler';

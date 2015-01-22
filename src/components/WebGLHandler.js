@@ -1,10 +1,15 @@
 import React from 'react';
+import BackgroundActionCreators from '../actions/BackgroundActionCreators';
 
 var WebGLHandler = React.createClass({
+  componentDidMount() {
+    BackgroundActionCreators.setBackground('#FF002F');
+  },
+
   render() {
     return (
       <div className="web-gl-handler">
-        <h2>WebGLHandler</h2>
+        <h3>Embrace OpenGL on the web for more unique visual control.</h3>
       </div>
     );
   }

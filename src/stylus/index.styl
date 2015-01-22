@@ -16,26 +16,187 @@ html
 body
   font-family Lato, sans-serif
   width 100%
+  height 100%
   min-height 100%
-  padding 4em
-  background-image linear-gradient(45deg, #00b9ff, #0094cc)
   color #eee
+  background-image linear-gradient(top left, #eee, #aaa)
 
 h1, h2, h3, h4, h5, h6
   font-weight 300
 
+
 h1
   display block
   border-bottom 1px dashed #fff
-  font-size 4em
+  font-size 6rem
   font-weight 100
+  margin 0
+  padding 0 0 0.2rem
   small
     text-transform uppercase
-    font-size 0.5em
+    font-size 2.4rem
     color #e7e7e7
+
+h2
+  font-size 2.8rem
+
+h3
+  font-size 2.4rem
+
+@keyframes navEnter
+  from
+    opacity 0
+    transform translateY(-15%) rotateY(60deg)
+  to
+    opacity 1
+    transform translateY(0%) rotateY(30deg)
+
+@keyframes navEnterActive
+  from
+    opacity 0
+    transform translateY(-15%) rotateY(60deg)
+  to
+    opacity 1
+    transform translateY(0%) rotateY(0)
+
+.app-handler
+  cf()
+  padding 4rem
+  display block
+  position relative
+  height 100%
+  overflow hidden
+  transition background-color 775ms ease-in-out
+  background-color darken(rgba(cyan, 0.4), 50%)
+  // background-image linear-gradient(45deg, #00b9ff, #0094cc)
 
 .nav
   col(2/12)
+  ul
+    list-style none
+    padding 0
+    margin 0
+    perspective 1000
+    li
+      ul
+        border-top 1px solid #fff
+        padding 0 1rem 0
+        display none
+      a
+        padding 1rem
+        border-left 1px solid #ddd
+        display block
+        text-decoration none
+        color #ddd
+        font-size 1.8rem
+        font-weight 100
+        transition color 175ms ease-in-out, transform 175ms ease-in-out
+        transform-style perserve-3d
+        transform-origin 0 0
+        transform rotateY(30deg)
+        padding-left 1rem
+        animation navEnter 275ms ease-in-out
+        animation-fill-mode backwards
+        &:hover, &.active
+          color #fff
+        &:hover
+          transform rotateY(15deg)
+        &.active
+          transform rotateY(0)
+          &+ul
+            display block
+      for n in 1...6
+        &:nth-child({n}) a
+          background-color rgba(#fff, 0.075 * n)
+          animation-delay 175ms * n
 
 .viewport
   col(10/12)
+  a
+    text-decoration none
+    color #fff
+    font-weight 800
+  p, ul, ol, dl
+    font-size 1.8rem
+    font-weight 300
+    color rgba(white, 0.8)
+    line-height 2.6rem
+  ul
+    list-style none
+    padding 0 1rem
+    li
+      border-left 1px dashed rgba(#fff, 0.4)
+      padding 0 1rem
+      margin 1rem 0
+  .task
+    text-shadow 1px 1px 5px rgba(black, 0.35)
+    &::before
+      font-family "FontAwesome"
+      margin-right 0.5em
+    &.fail
+      color lighten(red, 25%)
+      &::before
+        content "\f00d"
+    &.success
+      color lighten(green, 25%)
+      &::before
+        content "\f00c"
+
++below(1050px)
+  .nav, .viewport
+    stack()
+  .nav
+    ul
+      li
+        a
+          padding 0.5rem
+          border-left 0
+          float left
+          transform rotateY(0deg)
+
+
+@keyframes swiftBackgroundIn
+  from
+    transform translateY(-50%)
+    opacity 0
+  to
+    transform translateY(0%)
+    opacity 1
+
+@keyframes drawBird
+  0%
+    stroke-dashoffset 10000
+    fill transparent
+  50%
+    fill transparent
+  100%
+    stroke-dashoffset 0
+    fill #fff
+
+@keyframes drawBlur
+  from
+    opacity 0
+    transform scale(0.5)
+  to
+    opacity 1
+    transform scale(1.0)
+
+.swift
+  position absolute
+  right 5vh
+  bottom 5vh
+  width 30vh
+  height 30vh
+  position absolute
+  .swift-background
+    animation swiftBackgroundIn 775ms ease-in-out both 2s
+  .bird
+    stroke-width 4
+    stroke-dasharray 10000
+    stroke-dashoffset 10000
+    animation drawBird 3375ms ease-in-out forwards
+    fill transparent
+    stroke #fff
+  .motion-blur
+    opacity 0
+    animation swiftBackgroundIn 1375ms ease-in-out forwards 2s

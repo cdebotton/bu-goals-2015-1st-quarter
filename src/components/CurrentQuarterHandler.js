@@ -5,8 +5,8 @@ import {RouteHandler} from 'react-router';
 var CurrentQuarterHandler = React.createClass({
   render() {
     return (
-      <div className="current-quarter-handler">
-        <h2>CurrentQuarterHandler</h2>
+      <div {...this.props}>
+        <h2>Goals for Quarter 1, 2015</h2>
         <RouteHandler />
       </div>
     );

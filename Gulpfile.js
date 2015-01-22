@@ -5,7 +5,8 @@ pruno(function(mix) {
   mix
     .configure({dir: __dirname + '/config'})
     .del()
-    .publish({pkg: 'font-awesome', src: 'fonts/**/*', dist: '::dist/fonts'})
+    .publish('assets')
+    .publish('fonts', {pkg: 'font-awesome', src: 'fonts/**/*', dist: '::dist/fonts'})
     .stylus()
     .js({es6: true})
     .jade()

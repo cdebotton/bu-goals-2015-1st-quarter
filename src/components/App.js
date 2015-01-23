@@ -27,7 +27,7 @@ var App = React.createClass({
       r: parseInt(rgb[1], 16),
       g: parseInt(rgb[2], 16),
       b: parseInt(rgb[3], 16),
-      a: 0.4
+      a: 0.6
     } : {r: 0, g: 0, b: 0, a: 1.0};
 
     var color = `rgba(${r}, ${g}, ${b}, ${a})`;

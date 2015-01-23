@@ -1,6 +1,8 @@
 var pruno = require('pruno')
        .use(require('gulp'));
 
+require('./mixes/jsWithGSLTask');
+
 pruno(function(mix) {
   mix
     .configure({dir: __dirname + '/config'})
@@ -8,7 +10,7 @@ pruno(function(mix) {
     .publish('assets')
     .publish('fonts', {pkg: 'font-awesome', src: 'fonts/**/*', dist: '::dist/fonts'})
     .stylus()
-    .js({es6: true})
+    .jswithgsl({es6: true})
     .jade()
     .http();
 });

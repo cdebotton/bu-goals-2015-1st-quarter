@@ -10,9 +10,11 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.8.10",
+    "object-assign": "^2.0.0",
     "pruno": "^1.9.1"
   },
   "dependencies": {
+    "browserify-shader": "0.0.2",
     "fluxd": "^1.0.5",
     "font-awesome": "^4.2.0",
     "react": "^0.12.2",

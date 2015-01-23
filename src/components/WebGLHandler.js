@@ -54,7 +54,7 @@ var WebGLHandler = React.createClass({
 
         this.refs['gl-container'].getDOMNode().appendChild(renderer.domElement);
 
-        ballGeometry = new THREE.SphereGeometry(100, 40, 40);
+        ballGeometry = new THREE.SphereGeometry(50, 40, 40);
         ballMaterial = new THREE.MeshPhongMaterial({ambient: 0xff0000, color: 0xff0000})
         ball = new THREE.Mesh(ballGeometry, ballMaterial);
 
@@ -116,7 +116,7 @@ var WebGLHandler = React.createClass({
     var bt = 0;
     var lt = 0;
 
-    function render(){6
+    function render(){
         requestAnimationFrame(render);
 
         mx += (tx - mx) * .05;
@@ -135,9 +135,9 @@ var WebGLHandler = React.createClass({
         for(var i = 0, len = ballVertices.length; i < len; i++) {
             vertex = ballVertices[i];
             scale = Math.sin(t + i * ((1 + i)/(1 + i * var2)) * var1/40) * Math.sin(bt + i/ len) * level;
-            vertex.x = vertex.ox + vertex.ox * scale;
-            vertex.y = vertex.oy + vertex.oy * scale;
-            vertex.z = vertex.oz + vertex.oz * scale;
+            vertex.x = vertex.ox + vertex.ox * scale * 2;
+            vertex.y = vertex.oy + vertex.oy * scale * 2;
+            vertex.z = vertex.oz + vertex.oz * scale * 2;
         }
 
         ball.geometry.verticesNeedUpdate = true;
@@ -150,7 +150,6 @@ var WebGLHandler = React.createClass({
         ballMaterial.ambient.b = ballMaterial.color.b = config.color[2] / 255;
         camera.position.x = mx * 300;
         camera.position.y = my * 200;
-
         camera.lookAt(ball.position);
         renderer.render(scene, camera);
 
@@ -164,9 +163,16 @@ var WebGLHandler = React.createClass({
       <div className="web-gl-handler">
         <div className="gl-container" ref="gl-container" />
         <div className="gl-copy">
-          <h3>Embrace OpenGL on the web for more unique visual control.</h3>
-          <p>WebGL support has been steadily opening up, and it is allowing for more creative interactive nuances. WebGL is often associated with 3D animation, but it can be used for any sort of visual effects. OpenGL is a very complex subject, so the goal this quarter is to start thinking about how we can possibly implement some of these tools into our work.</p>
-          <p><strong>Bonus:</strong> Launch one site that uses canvas and the WebGL context.</p>
+          <h3>Embrace OpenGL on the web.</h3>
+          <p>WebGL is the use of OpenGL on the web. What is OpenGL? It&apos;s a way of utilizing the video card, which is typically the most powerful component in desktops, phones, and tablets, to render visual content. OpenGL is way more versatile (and complex) than working with CSS and the DOM, and also has an extraordinary performance benefit as well. In 2015, WebGL is now supported by all major modern browsers (Including IE10/IE11).</p>
+          <p>To set us apart as leaders in the industry, this is a key technology to work into how we think about design and development, as it opens up a seemingly limitless set of options in terms of how we solve problems.</p>
+          <p>WebGL and OpenGL are extremely deep and complex technologies, it will be key to focus on research this quarter, and begin thinking about how we can use this new technology.</p>
+          <h3><em>Goals</em></h3>
+          <ul>
+            <li>Start considering how this technology can be used in projects before the design phase begins.</li>
+            <li>Implement at least one use of the WebGL context in a site that launches this quarter.</li>
+            <li><strong>Bonus:</strong> Prototype a 3D web experience that begins to challenge the notion of what a website is.</li>
+          </ul>
         </div>
       </div>
     );

@@ -1,8 +1,10 @@
-import React from 'react';
+import React from 'react/addons';
 import {RouteHandler} from 'react-router';
 import Nav from './Nav';
 import BackgroundStore from '../stores/BackgroundStore';
 import {StoreListenerMixin} from 'fluxd';
+
+var {CSSTransitionGroup} = React.addons;
 
 const HEX_SEARCH = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
 
@@ -34,7 +36,7 @@ var App = React.createClass({
       <div className="app-handler" style={{backgroundColor: color}}>
         <h1>Technology Department Goals <small>Brooklyn United</small></h1>
         <Nav />
-        <RouteHandler className="viewport" />
+        <RouteHandler className="viewport" key={name} />
       </div>
     );
   }

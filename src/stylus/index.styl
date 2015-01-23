@@ -114,6 +114,8 @@ h3
 
 .viewport
   col(10/12)
+  position relative
+  height 100%
   a
     text-decoration none
     color #fff
@@ -214,3 +216,32 @@ h3
   right 0
   bottom 0
   z-index 0
+
+.viewport-wrapper
+  display block
+  position relative
+  height 85%
+  width 100%
+
+.current-viewport
+  position absolute
+  top 0
+  left 0
+
+.viewport-enter, .viewport-leave
+  display block
+  transition opacity 375ms ease-in-out, transform 375ms ease-in-out
+
+.viewport-enter
+  opacity 0
+  transform translateX(-15%)
+  &.viewport-enter-active
+    opacity 1
+    transform translateX(0)
+
+.viewport-leave
+  opacity 1
+  transform translateX(0)
+  &.viewport-leave-active
+    opacity 0
+    transform translateX(15%)

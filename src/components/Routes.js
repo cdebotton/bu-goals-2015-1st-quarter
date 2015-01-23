@@ -11,8 +11,7 @@ import WebGLHandler from './WebGLHandler';
 
 var Route = (
   <Route handler={App}>
-    <DefaultRoute name="index" handler={IndexHandler} />
-    <Route name="2014-q4" handler={RecapHandler} />
+    <DefaultRoute name="2014-q4" handler={RecapHandler} />
     <Route name="2015-q1" handler={CurrentQuarterHandler}>
       <DefaultRoute name="mobile" handler={MobileHandler} />
       <Route name="web-gl" handler={WebGLHandler} />

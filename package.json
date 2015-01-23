@@ -9,10 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "pruno": "^1.9.1"
   },
   "dependencies": {
-    "fluxd": "^1.0.2",
+    "fluxd": "^1.0.5",
     "font-awesome": "^4.2.0",
     "react": "^0.12.2",
     "react-router": "^0.11.6",
